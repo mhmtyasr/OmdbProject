@@ -4,7 +4,7 @@
 
 ## Introduction
 
- This template is built on HTML+Jquery+Webpack
+ This project is built on HTML+Jquery+Webpack
 
 ## DEMO
 
@@ -12,15 +12,20 @@
 
 ## Getting Started
 
-Installing
+### Installing
+
 After cloning repository, first install npm packages:
 
+```sh
 cd reactjs
 npm install 
+```
 
 And then start
-npm start
 
+```
+npm start
+```
 ## Deployment
 
 npm build
@@ -28,6 +33,9 @@ npm build
 
 ## ScreenShot
 
+![](_screenshots/index.jpg)
+![](_screenshots/search.jpg)
+![](_screenshots/Details.jpg)
 
 
 

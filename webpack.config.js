@@ -1,4 +1,4 @@
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = [
   {
     name: "index",
@@ -19,7 +19,7 @@ module.exports = [
     },
     module: {
       rules: [
-        
+        // Whatever other rules you have here...
         {
           test: /\.less$/,
           use: [

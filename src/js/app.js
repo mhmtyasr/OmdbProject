@@ -10,8 +10,12 @@ const IconType = {
 
 let InputValue;
 function addedMovieDetails(data) {
-  jquery("#Language" + data.imdbID + "").append("Adı:" + data.Language + "");
-  jquery("#Rate" + data.imdbID + "").append(data.imdbRating);
+  jquery("#Language" + data.imdbID + "").append(
+    "Dil:" + (data.Language == "N/A" ? "Bilinmiyor" : data.Language) + ""
+  );
+  jquery("#Rate" + data.imdbID + "").append(
+    data.imdbRating == "N/A" ? "Oy Yok" : data.imdbRating
+  );
   jquery("#Actors" + data.imdbID + "").append(
     "Oyuncular:" + data.Actors + " | <b>Tümünü Listeyi Gör</b>"
   );
@@ -25,32 +29,33 @@ function addedMovieDetails(data) {
 }
 function movieItem(movie) {
   Get("", { i: movie.imdbID }, addedMovieDetails);
+  const noImage = "https://antmovies.tv/uploads/no-poster.png";
   return (
     '<div class="row" style="margin-top:15px;"> ' +
     ' <div class="col-6 offset-3 col-sm-4 offset-sm-4 col-md-4  offset-md-0 col-lg-4  offset-lg-0 col-xl-4 offset-xl-0">' +
-    ' <img src=" ' +
-    '' +
+    ' <img src="' +
     movie.Poster +
-    '' +
-    '  " class="rounded float-left" style="width: 100%;height: 250px;"> ' +
-    '  </div> ' +
+    '" onerror="this.src=\'' +
+    noImage +
+    '\'" class="rounded float-left" style="width: 100%;height: 250px;"> ' +
+    "  </div> " +
     '   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> ' +
     '      <div class="row"> ' +
     '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> ' +
-    '<h3> ' +
-    '' +
+    "<h3> " +
+    "" +
     movie.Title +
-    ' ' +
-    '(' +
+    " " +
+    "(" +
     movie.Year +
-    ' )</h3> ' +
-    '    </div> ' +
+    " )</h3> " +
+    "    </div> " +
     '   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8" style="margin-top: -10px"> ' +
     '<i class="fas fa-star rateIcon"></i> ' +
     '<strong style="color:#5982fc" id="Rate' +
     movie.imdbID +
     '"></strong>/<small>10</small> ' +
-    '</div> ' +
+    "</div> " +
     '<div  class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-12" style="margin-top: 15px;font-size: 13px;word-break: break-word;">' +
     '<div  id="Language' +
     movie.imdbID +
@@ -61,10 +66,10 @@ function movieItem(movie) {
     '<div id="Plot' +
     movie.imdbID +
     '" style="margin-top: 20px;font-size: 13px"> ' +
-    '</div>  ' +
-    '</div>' +
-    '</div>' +
-    '</div>'
+    "</div>  " +
+    "</div>" +
+    "</div>" +
+    "</div>"
   );
 }
 function addedMovieDropFooter() {
