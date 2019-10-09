@@ -17,7 +17,6 @@
 After cloning repository, first install npm packages:
 
 ```sh
-cd reactjs
 npm install 
 ```
 
